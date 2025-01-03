@@ -372,32 +372,47 @@ function displayProducts(products) {
 }
 
 
+
+
 //Event Listeners
+let filteredArray = [...finaldata]; 
+
+//Search 
+searchButton.addEventListener("click", () => {
+  const searchTerm = searchBar.value.toLowerCase();
+
+  filteredArray = finaldata.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm)
+  );
+
+  const selectedSort = priceDropdown.value;
+  if (selectedSort === "low") {
+    filteredArray.sort((a, b) => a.price - b.price);
+  } else if (selectedSort === "high") {
+    filteredArray.sort((a, b) => b.price - a.price);
+  }
+
+  displayProducts(filteredArray);
+});
+
+
 dropdown.addEventListener("change", (e) => {
   const selectedValue = e.target.value;
   priceDropdown.style.display = selectedValue === "Price" ? "block" : "none";
   nameDropdown.style.display = selectedValue === "Name" ? "block" : "none";
 });
 
-searchButton.addEventListener("click", () => {
-  const searchTerm = searchBar.value.toLowerCase();
-  const filteredProducts = finaldata.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm)
-  );
-  displayProducts(filteredProducts);
-});
 
 priceDropdown.addEventListener("change", () => {
   const selectedSort = priceDropdown.value;
-  const sortedProducts = [...finaldata];
 
   if (selectedSort === "low") {
-    sortedProducts.sort((a, b) => a.price - b.price);
+    filteredArray.sort((a, b) => a.price - b.price);
   } else if (selectedSort === "high") {
-    sortedProducts.sort((a, b) => b.price - a.price);
+    filteredArray.sort((a, b) => b.price - a.price);
   }
 
-  displayProducts(sortedProducts);
+  displayProducts(filteredArray);
 });
 
 nameDropdown.addEventListener("change", () => {
@@ -412,6 +427,7 @@ nameDropdown.addEventListener("change", () => {
 
   displayProducts(sortedProducts);
 });
+
 
 
 //Added Responsiveness
