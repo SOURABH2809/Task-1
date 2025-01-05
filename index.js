@@ -23,7 +23,153 @@ title.setAttribute(
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
     padding: 20px 0;
     letter-spacing: 2px;
-`
+  `
+);
+
+const addBtn = document.createElement("button");
+addBtn.textContent = "Add Product";
+addBtn.setAttribute(
+  "style",
+  `
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: rgb(84, 67, 193);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  `
+);
+
+const formContainer = document.createElement("div");
+formContainer.setAttribute(
+  "style",
+  `
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  `
+);
+
+const form = document.createElement("form");
+form.setAttribute(
+  "style",
+  `
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  `
+);
+
+const IdLabel = document.createElement("label");
+IdLabel.textContent = " Product Id :";
+const IdInput = document.createElement("input");
+IdInput.type = "number";
+IdInput.style.borderRadius = "5px";
+IdInput.style.padding = "5px"
+IdInput.name = "Id";
+IdInput.required = true;
+
+const NameLabel = document.createElement("label");
+NameLabel.textContent = "Product Name :";
+const NameInput = document.createElement("input");
+NameInput.style.borderRadius = "5px";
+NameInput.style.padding = "5px"
+NameInput.type = "text";
+NameInput.name = "Name";
+NameInput.required = true;
+
+const DescriptionLabel = document.createElement("label");
+DescriptionLabel.textContent = "Product Description :";
+const DescriptionInput = document.createElement("input");
+DescriptionInput.style.borderRadius = "5px";
+DescriptionInput.style.padding = "5px"
+DescriptionInput.type = "text";
+DescriptionInput.name = "Description";
+DescriptionInput.required = true;
+
+const PriceLabel = document.createElement("label");
+PriceLabel.textContent = "Product Price :";
+const PriceInput = document.createElement("input");
+PriceInput.style.borderRadius = "5px";
+PriceInput.style.padding = "5px"
+PriceInput.type = "number";
+PriceInput.name = "Price";
+PriceInput.required = true;
+
+const QuantityLabel = document.createElement("label");
+QuantityLabel.textContent = "Product Quantity :";
+const QuantityInput = document.createElement("input");
+QuantityInput.style.borderRadius = "5px";
+QuantityInput.style.padding = "5px"
+QuantityInput.type = "number";
+QuantityInput.name = "Quantity";
+QuantityInput.required = true;
+
+const ImageLabel = document.createElement("label");
+ImageLabel.textContent = "Product Image :";
+const ImageInput = document.createElement("input");
+ImageInput.style.borderRadius = "5px";
+ImageInput.style.padding = "5px"
+ImageInput.type = "link";
+ImageInput.required = true;
+ImageInput.name = "Image";
+
+
+const submitBtn = document.createElement("button");
+submitBtn.textContent = "Submit";
+submitBtn.type = "submit";
+submitBtn.setAttribute(
+  "style",
+  `
+    margin-top: 10px;
+    width:20%;
+    margin-left:40%;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(84, 67, 193);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  `
+);
+
+const closeBtn = document.createElement("button");
+closeBtn.textContent = "Close";
+closeBtn.type = "button";
+closeBtn.setAttribute(
+  "style",
+  `
+    margin-top: 10px;
+    align-item:center;
+    margin-left:40%;
+    width:20%;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  `
 );
 
 const searchContainer = document.createElement("div");
@@ -57,7 +203,7 @@ searchButton.setAttribute(
   "style",
   `
     padding: 10px 20px; 
-    background-color:rgb(84, 67, 193); 
+    background-color: rgb(84, 67, 193); 
     color: white; 
     border: none; 
     border-radius: 5px; 
@@ -139,21 +285,89 @@ nameDropdown.setAttribute(
 );
 
 const optionAsc = document.createElement("option");
-optionAsc.value = "asc";
+optionAsc.value = "Asc";
 optionAsc.textContent = "Asc to Desc";
 
 const optionDesc = document.createElement("option");
-optionDesc.value = "desc";
+optionDesc.value = "Desc";
 optionDesc.textContent = "Desc to Asc";
 
-
-// Grid Container
 const grid = document.createElement("div");
 grid.style.display = "grid";
 grid.style.gridTemplateColumns = "repeat(4, 1fr)";
 grid.style.gap = "30px";
 grid.style.marginTop = "20px";
 grid.style.margin = "40px";
+
+const pagination = document.createElement("div");
+pagination.setAttribute(
+  "style",
+  `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+  `
+);
+
+const prevButton = document.createElement("button");
+prevButton.innerHTML = "←";
+prevButton.disabled = true;
+prevButton.setAttribute(
+  "style",
+  `
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(84, 67, 193);
+    font-size: 1.2em;
+  `
+);
+
+const pageNumber = document.createElement("span");
+pageNumber.textContent = "1";
+pageNumber.setAttribute(
+  "style",
+  `
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius : 5px;
+    color: black;
+    padding: 8px 16px;
+    background-color: white;
+  `
+);
+
+const nextButton = document.createElement("button");
+nextButton.innerHTML = "→";
+nextButton.setAttribute(
+  "style",
+  `
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(84, 67, 193);
+    color: white;
+    font-size: 1.2em;
+  `
+);
+
+form.appendChild(IdLabel);
+form.appendChild(IdInput);
+form.appendChild(NameLabel);
+form.appendChild(NameInput);
+form.appendChild(DescriptionLabel);
+form.appendChild(DescriptionInput);
+form.appendChild(PriceLabel);
+form.appendChild(PriceInput);
+form.appendChild(QuantityLabel);
+form.appendChild(QuantityInput);
+form.appendChild(ImageLabel);
+form.appendChild(ImageInput);
 
 dropdown.appendChild(optionDefault);
 dropdown.appendChild(optionPrice);
@@ -165,31 +379,47 @@ priceDropdown.appendChild(optionHigh);
 nameDropdown.appendChild(optionAsc);
 nameDropdown.appendChild(optionDesc);
 
-searchContainer.appendChild(searchBar);
-searchContainer.appendChild(searchButton);
+pagination.appendChild(prevButton);
+pagination.appendChild(pageNumber);
+pagination.appendChild(nextButton);
 
 sortContainer.appendChild(sortLabel);
 sortContainer.appendChild(dropdown);
 sortContainer.appendChild(priceDropdown);
 sortContainer.appendChild(nameDropdown);
 
+searchContainer.appendChild(searchBar);
+searchContainer.appendChild(searchButton);
+
+form.appendChild(submitBtn);
+form.appendChild(closeBtn);
+formContainer.appendChild(form);
+
 container.appendChild(title);
+
+container.appendChild(addBtn);
+container.appendChild(formContainer);
+
 container.appendChild(searchContainer);
 container.appendChild(sortContainer);
 container.appendChild(grid);
+container.appendChild(pagination);
 
 root.appendChild(container);
 
 
-//getData
+
+
+// Fetch and Display Data
 let finaldata = [];
+let currentPage = 1;
+const productsPerPage = 8;
 
 async function getData(Callback) {
   try {
     const response = await fetch("data.json");
     const data = await response.json();
     finaldata = data.products;
-
     return Callback(finaldata);
   } catch (error) {
     console.error(error);
@@ -197,11 +427,14 @@ async function getData(Callback) {
 }
 
 
-//displayData
 function displayProducts(products) {
-  grid.innerHTML = "";
 
-  if (products.length === 0) {
+  grid.innerHTML = "";
+  const start = (currentPage - 1) * productsPerPage;
+  const end = start + productsPerPage;
+  const Products = products.slice(start, end);
+
+  if (Products.length === 0) {
     const errorDiv = document.createElement("div");
     errorDiv.setAttribute(
       "style",
@@ -223,21 +456,20 @@ function displayProducts(products) {
     return;
   }
 
-  products.forEach((product) => {
+  Products.forEach((product) => {
     const card = document.createElement("div");
     card.setAttribute(
       "style",
       `
-      border: 1px solid #ccc; 
-      border-radius: 15px; 
-      padding: 15px; 
-      text-align: center; 
-      position: relative; 
-      background-color: white; 
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.34); 
-      transition: all 0.3s ease-in-out;
-      overflow: hidden;
-    `
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+        background-color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.34); 
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+      `
     );
 
     const img = document.createElement("img");
@@ -246,10 +478,10 @@ function displayProducts(products) {
     img.setAttribute(
       "style",
       `
-      width: 80%;
-      height: 200px;
-      object-fit: cover;
-      margin-bottom: 10px;
+        width: 80%;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 10px;
       `
     );
 
@@ -367,34 +599,96 @@ function displayProducts(products) {
       dropdownContent.style.display = isOpen ? "none" : "block";
       dropdownButton.textContent = isOpen ? "▼" : "▲";
     });
-
   });
+
+  pageNumber.textContent = currentPage;
+  prevButton.disabled = currentPage === 1;
+  nextButton.disabled = end >= products.length;
 }
 
 
+// Pagination Button - Event Listeners
+prevButton.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    displayProducts(filteredArray.length > 0 ? filteredArray : finaldata);
+  }
+});
+
+nextButton.addEventListener("click", () => {
+  if (
+    currentPage * productsPerPage <
+    (filteredArray.length > 0 ? filteredArray.length : finaldata.length)
+  ) {
+    currentPage++;
+    displayProducts(filteredArray.length > 0 ? filteredArray : finaldata);
+  }
+});
 
 
-//Event Listeners
-let filteredArray = [...finaldata]; 
+// Form - Event Listeners
+addBtn.addEventListener("click", () => {
+  formContainer.style.display = "flex";
+});
 
-//Search 
+closeBtn.addEventListener("click", () => {
+  formContainer.style.display = "none";
+});
+
+//Form Submit - Event Listeners
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const productData = {
+    id: IdInput.value,
+    name: NameInput.value,
+    description: DescriptionInput.value,
+    price: parseFloat(PriceInput.value),
+    quantity: parseInt(QuantityInput.value),
+    image: ImageInput.value,
+  };
+
+  finaldata.push(productData);
+  console.log("All products:", finaldata);
+  alert("Product Added Successfully");
+
+  form.reset();
+  formContainer.style.display = "none";
+});
+
+
+
+
+let filteredArray = [...finaldata];
+
+// Search - Event Listener
 searchButton.addEventListener("click", () => {
-  const searchTerm = searchBar.value.toLowerCase();
+  const searchValue = searchBar.value.toLowerCase();
 
   filteredArray = finaldata.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm)
+    product.name.toLowerCase().includes(searchValue)
   );
 
-  const selectedSort = priceDropdown.value;
-  if (selectedSort === "low") {
+  // Price Sorting - Event Listeners
+  const PriceSort = priceDropdown.value;
+  if (PriceSort === "low") {
     filteredArray.sort((a, b) => a.price - b.price);
-  } else if (selectedSort === "high") {
+  } else if (PriceSort === "high") {
     filteredArray.sort((a, b) => b.price - a.price);
   }
 
+
+  // Name Sorting - Event Listeners
+  const NameSort = nameDropdown.value;
+  if (NameSort === "Asc") {
+    filteredArray.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (NameSort === "Desc") {
+    filteredArray.sort((a, b) => b.name.localeCompare(a.name));
+  }
+
+  currentPage = 1;
   displayProducts(filteredArray);
 });
-
 
 dropdown.addEventListener("change", (e) => {
   const selectedValue = e.target.value;
@@ -403,41 +697,53 @@ dropdown.addEventListener("change", (e) => {
 });
 
 
-priceDropdown.addEventListener("change", () => {
-  const selectedSort = priceDropdown.value;
 
-  if (selectedSort === "low") {
+
+// Price Sorting - Event Listeners
+priceDropdown.addEventListener("change", () => {
+  if (filteredArray.length > 0) {
+    filteredArray = [...filteredArray];
+  } else {
+    filteredArray = [...finaldata];
+  }
+  
+  const PriceSort = priceDropdown.value;
+  if (PriceSort === "low") {
     filteredArray.sort((a, b) => a.price - b.price);
-  } else if (selectedSort === "high") {
+  } else if (PriceSort === "high") {
     filteredArray.sort((a, b) => b.price - a.price);
   }
 
+  currentPage = 1;
   displayProducts(filteredArray);
 });
 
-nameDropdown.addEventListener("change", () => {
-  const selectedSort = nameDropdown.value;
-  const sortedProducts = [...finaldata];
 
-  if (selectedSort === "Asc") {
-    sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (selectedSort === "Desc") {
-    sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+// Name Sorting - Event Listeners
+nameDropdown.addEventListener("change", () => {
+  if (filteredArray.length > 0) {
+    filteredArray = [...filteredArray];
+  } else {
+    filteredArray = [...finaldata];
+  }
+  
+  const NameSort = nameDropdown.value;
+  if (NameSort === "Asc") {
+    filteredArray.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (NameSort === "Desc") {
+    filteredArray.sort((a, b) => b.name.localeCompare(a.name));
   }
 
-  displayProducts(sortedProducts);
+  currentPage = 1; 
+  displayProducts(filteredArray);
 });
 
 
 
 //Added Responsiveness
 const Mobile = window.matchMedia("(max-width: 550px)");
-const Tablet = window.matchMedia(
-  "(min-width: 550px) and (max-width: 900px)"
-);
-const Laptop = window.matchMedia(
-  "(min-width: 900px) and (max-width: 1380px)"
-);
+const Tablet = window.matchMedia("(min-width: 550px) and (max-width: 900px)");
+const Laptop = window.matchMedia("(min-width: 900px) and (max-width: 1380px)");
 const Desktop = window.matchMedia("(min-width: 1400px)");
 
 function adjustGridLayout() {
@@ -457,5 +763,7 @@ Mobile.addEventListener("change", adjustGridLayout);
 Tablet.addEventListener("change", adjustGridLayout);
 Laptop.addEventListener("change", adjustGridLayout);
 Desktop.addEventListener("change", adjustGridLayout);
+
+
 
 getData(displayProducts);

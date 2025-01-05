@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "iPhone 15 Pro Max",
-            "price": 1299000.99,
+            "price": 1499000.99,
             "quantity": 15,
             "description": "Apple iPhone 15 Pro Max with A17 Bionic chip and triple camera system.",
             "image": "https://touchmobiles.in/public/uploads/images/24-09-2024/66f2a6d7604d8.png"
@@ -11,7 +11,7 @@
         {
             "id": 2,
             "name": "Samsung Galaxy S24 ",
-            "price": 119900.99,
+            "price": 129900.99,
             "quantity": 25,
             "description": "Samsung Galaxy S24 Ultra with Snapdragon 8 Gen 2 and 200MP camera.",
             "image": "https://touchmobiles.in/public/uploads/images/05-06-2024/6660032926e82.png"
@@ -19,7 +19,7 @@
         {
             "id": 3,
             "name": "Oppo Reno 12 Pro",
-            "price": 89900.99,
+            "price": 89700.99,
             "quantity": 30,
             "description": "Oppo Reno 12 Pro with AMOLED display and 100W fast charging.",
             "image": "https://touchmobiles.in/public/uploads/images/20-09-2024/66ed55473c5fe.png"
@@ -27,7 +27,7 @@
         {
             "id": 4,
             "name": "Realme C55 5G",
-            "price": 99900.99,
+            "price": 93900.99,
             "quantity": 20,
             "description": "Realme C55 Rainforest with Tensor G3 chip and AI-enhanced camera.",
             "image": "https://touchmobiles.in/public/uploads/images/07-06-2024/66630435115ca.png"
@@ -35,7 +35,7 @@
         {
             "id": 5,
             "name": "Oneplus 11 5G",
-            "price": 79900.99,
+            "price": 75900.99,
             "quantity": 40,
             "description": "Oneplus 11 5G with Snapdragon 8 Gen 2 and 120Hz AMOLED display.",
             "image": "https://touchmobiles.in/public/uploads/images/04-06-2024/665ef1e7d76d5.png"
@@ -43,7 +43,7 @@
         {
             "id": 6,
             "name": "Samsung Galaxy 5G",
-            "price": 49900.99,
+            "price": 48900.99,
             "quantity": 50,
             "description": "Samsung Galaxy Z Fold with 240W charging and Snapdragon 8+ Gen 1.",
             "image": "https://touchmobiles.in/public/uploads/images/15-07-2024/6694f82edfb26.png"
@@ -51,7 +51,7 @@
         {
             "id": 7,
             "name": "OPPO Find X7 ",
-            "price": 89900.99,
+            "price": 89600.99,
             "quantity": 22,
             "description": "OPPO Find X7 Pro with periscope zoom lens and Snapdragon processor.",
             "image": "https://touchmobiles.in/public/uploads/images/04-06-2024/665ef81e606f3.png"
@@ -59,7 +59,7 @@
         {
             "id": 8,
             "name": "Vivo X90 Pro+",
-            "price": 79900.99,
+            "price": 79000.99,
             "quantity": 28,
             "description": "Vivo X90 Pro+ with Zeiss optics and MediaTek Dimensity 9200.",
             "image": "https://touchmobiles.in/public/uploads/images/05-06-2024/666054d99cf2b.png"
@@ -67,7 +67,7 @@
         {
             "id": 9,
             "name": "Vivo V29E",
-            "price": 109900.99,
+            "price": 109000.99,
             "quantity": 18,
             "description": "Vivo V29E with 4K HDR OLED display and Snapdragon 8 Gen 2.",
             "image": "https://touchmobiles.in/public/uploads/images/05-06-2024/666052544a7b3.png"
@@ -83,7 +83,7 @@
         {
             "id": 11,
             "name": "Samsung Galaxy S24 ",
-            "price": 599000.99,
+            "price": 596000.99,
             "quantity": 35,
             "description": "Samsung Galaxy S24 Ultra with advanced AI camera and Snapdragon processor.",
             "image": "https://touchmobiles.in/public/uploads/images/05-06-2024/6660032926e82.png"
@@ -91,7 +91,7 @@
         {
             "id": 12,
             "name": "Motorola Edge 40",
-            "price": 69900.99,
+            "price": 69500.99,
             "quantity": 33,
             "description": "Motorola Edge 40 Pro with 165Hz display and fast charging.",
             "image": "https://touchmobiles.in/public/uploads/images/20-09-2024/66ed55473c5fe.png"
@@ -99,7 +99,7 @@
         {
             "id": 13,
             "name": "Huawei P60 Pro",
-            "price": 89900.99,
+            "price": 89400.99,
             "quantity": 21,
             "description": "Huawei P60 Pro with XMAGE camera and Snapdragon 8+ Gen 1.",
             "image": "https://touchmobiles.in/public/uploads/images/05-06-2024/666052544a7b3.png"
@@ -107,7 +107,7 @@
         {
             "id": 14,
             "name": "Redmi Note 12 Pro+",
-            "price": 39900.99,
+            "price": 19900.99,
             "quantity": 50,
             "description": "Redmi Note 12 Pro+ with 200MP camera and 120W charging.",
             "image": "https://touchmobiles.in/public/uploads/images/07-06-2024/66630435115ca.png"
@@ -115,15 +115,15 @@
         {
             "id": 15,
             "name": "iPhone 14 Pro Max",
-            "price": 34900.99,
+            "price": 74900.99,
             "quantity": 45,
             "description": "iPhone 14 Pro Max with A15 Bionic chip and ProMotion display.",
             "image": "https://touchmobiles.in/public/uploads/images/24-09-2024/66f29475d43e4.png"
         },
         {
             "id": 16,
-            "name": "Motorola Edge 40 Pro",
-            "price": 29900.99,
+            "name": "Samsung Galaxy S21",
+            "price": 26900.99,
             "quantity": 60,
             "description": "Motorola Edge 40 Pro with Snapdragon 778G and 108MP camera.",
             "image": "https://touchmobiles.in/public/uploads/images/20-09-2024/66ed55473c5fe.png"
@@ -143,6 +143,102 @@
             "quantity": 30,
             "description": "Vivo V29 5G with Snapdragon 8 Gen 2 and 200W charging.",
             "image": "https://touchmobiles.in/public/uploads/images/12-03-2024/65f03f6fd6af5.png"
+        },
+        {
+            "id": 19,
+            "name": "iPhone 15 Pro Max",
+            "price": 1299000.99,
+            "quantity": 15,
+            "description": "Apple iPhone 15 Pro Max with A17 Bionic chip and triple camera system.",
+            "image": "https://touchmobiles.in/public/uploads/images/24-09-2024/66f2a6d7604d8.png"
+        },
+        {
+            "id": 20,
+            "name": "Samsung Galaxy S24 ",
+            "price": 119900.99,
+            "quantity": 25,
+            "description": "Samsung Galaxy S24 Ultra with Snapdragon 8 Gen 2 and 200MP camera.",
+            "image": "https://touchmobiles.in/public/uploads/images/05-06-2024/6660032926e82.png"
+        },
+        {
+            "id": 21,
+            "name": "Oppo Reno 12 Pro",
+            "price": 89900.99,
+            "quantity": 30,
+            "description": "Oppo Reno 12 Pro with AMOLED display and 100W fast charging.",
+            "image": "https://touchmobiles.in/public/uploads/images/20-09-2024/66ed55473c5fe.png"
+        },
+        {
+            "id": 22,
+            "name": "Samsung Galaxy S24",
+            "price": 90900.99,
+            "quantity": 20,
+            "description": "Realme C55 Rainforest with Tensor G3 chip and AI-enhanced camera.",
+            "image": "https://touchmobiles.in/public/uploads/images/07-06-2024/66630435115ca.png"
+        },
+        {
+            "id": 23,
+            "name": "Oneplus 11 5G",
+            "price": 19900.99,
+            "quantity": 40,
+            "description": "Oneplus 11 5G with Snapdragon 8 Gen 2 and 120Hz AMOLED display.",
+            "image": "https://touchmobiles.in/public/uploads/images/04-06-2024/665ef1e7d76d5.png"
+        },
+        {
+            "id": 24,
+            "name": "Samsung Galaxy 5G",
+            "price": 49900.99,
+            "quantity": 50,
+            "description": "Samsung Galaxy Z Fold with 240W charging and Snapdragon 8+ Gen 1.",
+            "image": "https://touchmobiles.in/public/uploads/images/15-07-2024/6694f82edfb26.png"
+        },
+        {
+            "id": 25,
+            "name": "OPPO Find X7 ",
+            "price": 89900.99,
+            "quantity": 22,
+            "description": "OPPO Find X7 Pro with periscope zoom lens and Snapdragon processor.",
+            "image": "https://touchmobiles.in/public/uploads/images/04-06-2024/665ef81e606f3.png"
+        },
+        {
+            "id": 26,
+            "name": "Samsung Galaxy S24",
+            "price": 79900.99,
+            "quantity": 28,
+            "description": "Vivo X90 Pro+ with Zeiss optics and MediaTek Dimensity 9200.",
+            "image": "https://touchmobiles.in/public/uploads/images/05-06-2024/666054d99cf2b.png"
+        },
+        {
+            "id": 27,
+            "name": "Vivo V29E",
+            "price": 109900.99,
+            "quantity": 18,
+            "description": "Vivo V29E with 4K HDR OLED display and Snapdragon 8 Gen 2.",
+            "image": "https://touchmobiles.in/public/uploads/images/05-06-2024/666052544a7b3.png"
+        },
+        {
+            "id": 28,
+            "name": "iPhone 16 Pro",
+            "price": 999000.99,
+            "quantity": 26,
+            "description": "iPhone 16 Pro Max with A16 Bionic chip and improved camera system.",
+            "image": "https://touchmobiles.in/public/uploads/images/24-09-2024/66f2a481edb6b.png"
+        },
+        {
+            "id": 29,
+            "name": "Samsung Galaxy S24 ",
+            "price": 599000.99,
+            "quantity": 35,
+            "description": "Samsung Galaxy S24 Ultra with advanced AI camera and Snapdragon processor.",
+            "image": "https://touchmobiles.in/public/uploads/images/05-06-2024/6660032926e82.png"
+        },
+        {
+            "id": 30,
+            "name": "Samsung Galaxy S29",
+            "price": 69900.99,
+            "quantity": 33,
+            "description": "Motorola Edge 40 Pro with 165Hz display and fast charging.",
+            "image": "https://touchmobiles.in/public/uploads/images/20-09-2024/66ed55473c5fe.png"
         }
     ]
 }
