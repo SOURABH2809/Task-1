@@ -81,7 +81,7 @@ IdLabel.textContent = " Product Id :";
 const IdInput = document.createElement("input");
 IdInput.type = "number";
 IdInput.style.borderRadius = "5px";
-IdInput.style.padding = "5px"
+IdInput.style.padding = "5px";
 IdInput.name = "Id";
 IdInput.required = true;
 
@@ -89,7 +89,7 @@ const NameLabel = document.createElement("label");
 NameLabel.textContent = "Product Name :";
 const NameInput = document.createElement("input");
 NameInput.style.borderRadius = "5px";
-NameInput.style.padding = "5px"
+NameInput.style.padding = "5px";
 NameInput.type = "text";
 NameInput.name = "Name";
 NameInput.required = true;
@@ -98,7 +98,7 @@ const DescriptionLabel = document.createElement("label");
 DescriptionLabel.textContent = "Product Description :";
 const DescriptionInput = document.createElement("input");
 DescriptionInput.style.borderRadius = "5px";
-DescriptionInput.style.padding = "5px"
+DescriptionInput.style.padding = "5px";
 DescriptionInput.type = "text";
 DescriptionInput.name = "Description";
 DescriptionInput.required = true;
@@ -107,7 +107,7 @@ const PriceLabel = document.createElement("label");
 PriceLabel.textContent = "Product Price :";
 const PriceInput = document.createElement("input");
 PriceInput.style.borderRadius = "5px";
-PriceInput.style.padding = "5px"
+PriceInput.style.padding = "5px";
 PriceInput.type = "number";
 PriceInput.name = "Price";
 PriceInput.required = true;
@@ -116,7 +116,7 @@ const QuantityLabel = document.createElement("label");
 QuantityLabel.textContent = "Product Quantity :";
 const QuantityInput = document.createElement("input");
 QuantityInput.style.borderRadius = "5px";
-QuantityInput.style.padding = "5px"
+QuantityInput.style.padding = "5px";
 QuantityInput.type = "number";
 QuantityInput.name = "Quantity";
 QuantityInput.required = true;
@@ -125,11 +125,10 @@ const ImageLabel = document.createElement("label");
 ImageLabel.textContent = "Product Image :";
 const ImageInput = document.createElement("input");
 ImageInput.style.borderRadius = "5px";
-ImageInput.style.padding = "5px"
+ImageInput.style.padding = "5px";
 ImageInput.type = "link";
 ImageInput.required = true;
 ImageInput.name = "Image";
-
 
 const submitBtn = document.createElement("button");
 submitBtn.textContent = "Submit";
@@ -409,8 +408,7 @@ root.appendChild(container);
 
 
 
-
-// Fetch and Display Data
+//Fetch Data
 let finaldata = [];
 let currentPage = 1;
 const productsPerPage = 8;
@@ -426,13 +424,20 @@ async function getData(Callback) {
   }
 }
 
-
+// Display Data
 function displayProducts(products) {
+  products.forEach((product) => {
+    if (product.toggle === undefined) {
+      product.toggle = true;
+    }
+  });
 
   grid.innerHTML = "";
   const start = (currentPage - 1) * productsPerPage;
   const end = start + productsPerPage;
-  const Products = products.slice(start, end);
+  const Products = products
+    .filter((product) => product.toggle !== false)
+    .slice(start, end);
 
   if (Products.length === 0) {
     const errorDiv = document.createElement("div");
@@ -457,6 +462,10 @@ function displayProducts(products) {
   }
 
   Products.forEach((product) => {
+    if (!product.toggle) {
+      return;
+    }
+
     const card = document.createElement("div");
     card.setAttribute(
       "style",
@@ -469,7 +478,27 @@ function displayProducts(products) {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.34); 
         transition: all 0.3s ease-in-out;
         overflow: hidden;
+        position: relative;
       `
+    );
+
+    const crossButton = document.createElement("button");
+    crossButton.textContent = "✖";
+    crossButton.setAttribute(
+      "style",
+      `
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 20px;
+      background-color:red;
+      height: 20px;
+      font-size: 12px;
+      cursor: pointer;
+    `
     );
 
     const img = document.createElement("img");
@@ -522,11 +551,11 @@ function displayProducts(products) {
       `
       display: none; 
       padding: 2px; 
-      font-size: 12px; 
+      font-size: 13px; 
       background-color: #f8f9fa; 
       border-radius: 5px; 
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: left;
+      text-align: center;
       margin:0;
     `
     );
@@ -535,10 +564,9 @@ function displayProducts(products) {
     PQContainer.setAttribute(
       "style",
       `
-      display: flex; 
       justify-content: space-between; 
       align-items: center; 
-      margin-top: 10px; 
+      margin-top: 30px; 
       transition: all 0.3s ease-in-out;
     `
     );
@@ -549,6 +577,8 @@ function displayProducts(products) {
       "style",
       `
       font-weight: bold;
+      padding-bottom: 10px;
+      font-size: 15px;
       color: #333;
       margin: 0;
     `
@@ -559,7 +589,7 @@ function displayProducts(products) {
     quantity.setAttribute(
       "style",
       `
-      font-size: 0.9em;
+      font-size: 15px;
       color: #555;
       margin: 0;
     `
@@ -585,8 +615,9 @@ function displayProducts(products) {
 
     PQContainer.appendChild(price);
     PQContainer.appendChild(quantity);
-
+    card.appendChild(crossButton);
     card.appendChild(img);
+
     card.appendChild(nameContainer);
     card.appendChild(dropdownContent);
     card.appendChild(PQContainer);
@@ -594,40 +625,40 @@ function displayProducts(products) {
 
     grid.appendChild(card);
 
-    
+    crossButton.addEventListener("click", () => {
+      product.toggle = false;
+      displayProducts(products);
+    });
+
     dropdownButton.addEventListener("click", () => {
       const isOpen = dropdownContent.style.display === "block";
-      
+
       dropdownContent.style.display = isOpen ? "none" : "block";
       dropdownButton.textContent = isOpen ? "▼" : "▲";
-    
+
       if (dropdownContent.style.display === "block") {
         PQContainer.style.display = "flex";
         PQContainer.style.marginTop = "none";
         price.style.fontSize = "14px";
-        quantity.style.fontSize = '14px';
+        quantity.style.fontSize = "14px";
         price.style.paddingBottom = "none";
-        nameContainer.style.marginBottom ="5px";
-        img.style.height="179px";
-      } 
-      else {
-        PQContainer.style.display = "block";  
+        nameContainer.style.marginBottom = "5px";
+        img.style.height = "179px";
+      } else {
+        PQContainer.style.display = "block";
         PQContainer.style.marginTop = "30px";
         price.style.fontSize = "15px";
-        quantity.style.fontSize = '15px'; 
-        nameContainer.style.marginBottom ="25px";
-        img.style.height="200px";    
+        quantity.style.fontSize = "15px";
+        nameContainer.style.marginBottom = "25px";
+        img.style.height = "200px";
       }
     });
-
-
   });
 
   pageNumber.textContent = currentPage;
   prevButton.disabled = currentPage === 1;
   nextButton.disabled = end >= products.length;
 }
-
 
 // Pagination Button - Event Listeners
 prevButton.addEventListener("click", () => {
@@ -646,7 +677,6 @@ nextButton.addEventListener("click", () => {
     displayProducts(filteredArray.length > 0 ? filteredArray : finaldata);
   }
 });
-
 
 // Form - Event Listeners
 addBtn.addEventListener("click", () => {
@@ -678,9 +708,6 @@ form.addEventListener("submit", (e) => {
   formContainer.style.display = "none";
 });
 
-
-
-
 let filteredArray = [...finaldata];
 
 // Search - Event Listener
@@ -698,7 +725,6 @@ searchButton.addEventListener("click", () => {
   } else if (PriceSort === "high") {
     filteredArray.sort((a, b) => b.price - a.price);
   }
-
 
   // Name Sorting - Event Listeners
   const NameSort = nameDropdown.value;
@@ -718,9 +744,6 @@ dropdown.addEventListener("change", (e) => {
   nameDropdown.style.display = selectedValue === "Name" ? "block" : "none";
 });
 
-
-
-
 // Price Sorting - Event Listeners
 priceDropdown.addEventListener("change", () => {
   if (filteredArray.length > 0) {
@@ -728,7 +751,7 @@ priceDropdown.addEventListener("change", () => {
   } else {
     filteredArray = [...finaldata];
   }
-  
+
   const PriceSort = priceDropdown.value;
   if (PriceSort === "low") {
     filteredArray.sort((a, b) => a.price - b.price);
@@ -740,7 +763,6 @@ priceDropdown.addEventListener("change", () => {
   displayProducts(filteredArray);
 });
 
-
 // Name Sorting - Event Listeners
 nameDropdown.addEventListener("change", () => {
   if (filteredArray.length > 0) {
@@ -748,7 +770,7 @@ nameDropdown.addEventListener("change", () => {
   } else {
     filteredArray = [...finaldata];
   }
-  
+
   const NameSort = nameDropdown.value;
   if (NameSort === "Asc") {
     filteredArray.sort((a, b) => a.name.localeCompare(b.name));
@@ -756,11 +778,9 @@ nameDropdown.addEventListener("change", () => {
     filteredArray.sort((a, b) => b.name.localeCompare(a.name));
   }
 
-  currentPage = 1; 
+  currentPage = 1;
   displayProducts(filteredArray);
 });
-
-
 
 //Added Responsiveness
 const Mobile = window.matchMedia("(max-width: 550px)");
@@ -785,7 +805,5 @@ Mobile.addEventListener("change", adjustGridLayout);
 Tablet.addEventListener("change", adjustGridLayout);
 Laptop.addEventListener("change", adjustGridLayout);
 Desktop.addEventListener("change", adjustGridLayout);
-
-
 
 getData(displayProducts);
