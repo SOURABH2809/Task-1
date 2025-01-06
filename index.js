@@ -594,11 +594,33 @@ function displayProducts(products) {
 
     grid.appendChild(card);
 
+    
     dropdownButton.addEventListener("click", () => {
       const isOpen = dropdownContent.style.display === "block";
+      
       dropdownContent.style.display = isOpen ? "none" : "block";
       dropdownButton.textContent = isOpen ? "▼" : "▲";
+    
+      if (dropdownContent.style.display === "block") {
+        PQContainer.style.display = "flex";
+        PQContainer.style.marginTop = "none";
+        price.style.fontSize = "14px";
+        quantity.style.fontSize = '14px';
+        price.style.paddingBottom = "none";
+        nameContainer.style.marginBottom ="5px";
+        img.style.height="179px";
+      } 
+      else {
+        PQContainer.style.display = "block";  
+        PQContainer.style.marginTop = "30px";
+        price.style.fontSize = "15px";
+        quantity.style.fontSize = '15px'; 
+        nameContainer.style.marginBottom ="25px";
+        img.style.height="200px";    
+      }
     });
+
+
   });
 
   pageNumber.textContent = currentPage;
