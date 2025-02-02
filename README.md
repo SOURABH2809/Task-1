@@ -23,28 +23,24 @@ This project demonstrates the creation of a simple e-commerce page using JavaScr
 <hr>
 
 # Getting Started
+
 ## 🚀Installation
-- Clone the repository and navigate to the project directory:
+
+Clone the repository and navigate to the project directory:
 ```
 git clone https://github.com/SOURABH2809/Task-1
 cd Task-1
 ```
 
-**Install Dependencies**
-- Run the following command in the terminal:
-```
-npm install
-```
-
 
 **Run the Project**
-- Start the Application by running:
-```
-npm run dev
-```
+Open the project folder and start Live Server:
+- Open index.html in VS Code or any code editor.
+- Right-click index.html and select "Open with Live Server".
+- The project will open in your default browser.
 
 **Access the application**
-- Open http://localhost:5173 in your browser to access the application.
+- Open http://127.0.0.1:5500  in your browser to access the application.
 
 <hr>
 <p align="center">
